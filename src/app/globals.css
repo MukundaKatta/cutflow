@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-cf-bg text-cf-text antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cf-border rounded-full hover:bg-cf-border-hover;
+  }
+
+  ::selection {
+    @apply bg-cf-accent/30 text-white;
+  }
+}
+
+@layer components {
+  .cf-panel {
+    @apply bg-cf-surface border border-cf-border rounded-lg;
+  }
+
+  .cf-panel-header {
+    @apply flex items-center justify-between px-3 py-2 border-b border-cf-border text-sm font-medium text-cf-text-muted;
+  }
+
+  .cf-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-cf-accent focus-visible:ring-offset-1 focus-visible:ring-offset-cf-bg disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .cf-btn-primary {
+    @apply cf-btn bg-cf-accent text-white hover:bg-cf-accent-hover active:bg-cf-accent-dim;
+  }
+
+  .cf-btn-secondary {
+    @apply cf-btn bg-cf-surface-2 text-cf-text hover:bg-cf-surface-3 border border-cf-border;
+  }
+
+  .cf-btn-ghost {
+    @apply cf-btn text-cf-text-muted hover:text-cf-text hover:bg-cf-surface-2;
+  }
+
+  .cf-btn-danger {
+    @apply cf-btn bg-cf-danger/10 text-cf-danger hover:bg-cf-danger/20;
+  }
+
+  .cf-btn-icon {
+    @apply cf-btn p-1.5 text-cf-text-muted hover:text-cf-text hover:bg-cf-surface-2;
+  }
+
+  .cf-input {
+    @apply w-full rounded-md bg-cf-surface-2 border border-cf-border px-3 py-1.5 text-sm text-cf-text placeholder:text-cf-text-dim focus:outline-none focus:ring-2 focus:ring-cf-accent focus:border-transparent transition-colors;
+  }
+
+  .cf-select {
+    @apply cf-input appearance-none cursor-pointer;
+  }
+
+  .cf-label {
+    @apply block text-xs font-medium text-cf-text-muted mb-1;
+  }
+
+  .cf-slider {
+    @apply w-full h-1 rounded-full bg-cf-surface-3 appearance-none cursor-pointer;
+  }
+
+  .cf-slider::-webkit-slider-thumb {
+    @apply appearance-none w-3 h-3 rounded-full bg-cf-accent cursor-pointer;
+  }
+
+  .cf-badge {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+
+  .cf-badge-accent {
+    @apply cf-badge bg-cf-accent/20 text-cf-accent;
+  }
+
+  .cf-badge-success {
+    @apply cf-badge bg-cf-success/20 text-cf-success;
+  }
+
+  .cf-badge-warning {
+    @apply cf-badge bg-cf-warning/20 text-cf-warning;
+  }
+
+  .cf-badge-danger {
+    @apply cf-badge bg-cf-danger/20 text-cf-danger;
+  }
+
+  .cf-tooltip {
+    @apply absolute z-50 px-2 py-1 text-xs bg-cf-surface-3 text-cf-text rounded shadow-lg border border-cf-border pointer-events-none;
+  }
+
+  .cf-shimmer {
+    @apply bg-gradient-to-r from-cf-surface-2 via-cf-surface-3 to-cf-surface-2 bg-[length:200%_100%] animate-shimmer;
+  }
+
+  .cf-track-clip {
+    @apply absolute top-1 bottom-1 rounded cursor-pointer border border-transparent hover:border-cf-accent/50 transition-colors select-none overflow-hidden;
+  }
+
+  .cf-track-clip-selected {
+    @apply border-cf-accent ring-1 ring-cf-accent/30;
+  }
+
+  .cf-context-menu {
+    @apply fixed z-50 min-w-[180px] bg-cf-surface-2 border border-cf-border rounded-lg shadow-xl py-1 animate-scale-in;
+  }
+
+  .cf-context-menu-item {
+    @apply flex items-center gap-2 w-full px-3 py-1.5 text-sm text-cf-text hover:bg-cf-surface-3 cursor-pointer transition-colors;
+  }
+
+  .cf-divider {
+    @apply border-t border-cf-border my-1;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
